@@ -13,16 +13,28 @@ function videoControl(callback) {
     var $touch = document.getElementById('J_Touch');
     var $meida = document.getElementById('J_Media');
 
-    var width = document.body.clientWidth;
-    var height = document.body.clientHeight;
-
-    var ctx = $canvas.getContext('2d');
-    $canvas.width = width;
-    $canvas.height = height;
-    $meida.classList.add('show');
+    var videoWidth = 1334;
+    var videoHeight = 750;
 
     function draw() {
-        ctx.drawImage($video, 0, 0, width, height);
+        var width = document.body.clientWidth;
+        var height = document.body.clientHeight;
+
+        var ctx = $canvas.getContext('2d');
+        $canvas.width = width;
+        $canvas.height = height;
+        $meida.classList.add('show');
+
+        var ww = width;
+        var wh = ww / videoWidth * videoHeight;
+
+        var hh = height;
+        var hw = hh * videoWidth / videoHeight;
+
+        var ctxWidth = Math.min(ww, hw);
+        var ctxHeight = Math.min(hh, wh);
+
+        ctx.drawImage($video, (ctxWidth - width) / -2, (ctxHeight - height) / -2, ctxWidth, ctxHeight);
 
         window.requestAnimationFrame(draw);
     }
