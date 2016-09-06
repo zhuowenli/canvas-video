@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @desc  : Description
+ */
+
+@import "../node_modules/sass-core/base";
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+.media{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include transition(all 0.3s ease-in-out);
+    &.hide{
+        opacity: 0;
+    }
+    video{
+        opacity: 0;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+    canvas{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .touch{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        margin-left: -50px;
+        width: 100px;
+        height: 80px;
+        padding-top: 20px;
+        &:after{
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            display: block;
+            width: 80px;
+            height: 10px;
+            background: transparent url('../img/f.png') center top no-repeat;
+            background-size: 100% auto;
+            @include animation(scan 1s ease-out infinite);
+            @include transition(all 0.3s ease-in-out);
+        }
+        .finger{
+            display: block;
+            margin: 0 auto;
+            width: 59px;
+            height: 58px;
+            background: transparent url('../img/finger.png') left top no-repeat;
+            background-size: 100% auto;
+            @include transition(all 0.3s ease-in-out);
+        }
+        &.on{
+            &:after, .finger{
+                @include transform(scale(0));
+            }
+        }
+    }
+}
+
+@include keyframes(scan){
+    0%{
+        top: 10px;
+    }
+    100%{
+        top: 80px;
+    }
+};
