@@ -24,6 +24,10 @@ html, body{
     right: 0;
     bottom: 0;
     @include transition(all 0.3s ease-in-out);
+    display: none;
+    &.show{
+        display: block;
+    }
     &.hide{
         opacity: 0;
     }
@@ -46,36 +50,22 @@ html, body{
         position: absolute;
         left: 50%;
         bottom: 0;
-        margin-left: -50px;
-        width: 100px;
-        height: 80px;
-        padding-top: 20px;
-        &:after{
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 0;
-            display: block;
-            width: 80px;
-            height: 10px;
-            background: transparent url('../img/f.png') center top no-repeat;
-            background-size: 100% auto;
-            @include animation(scan 1s ease-out infinite);
-            @include transition(all 0.3s ease-in-out);
-        }
+        margin-left: #{346px / -4};
+        width: (346px / 2);
+        height: (66px / 2);
+        padding: 10px 0;
         .finger{
-            display: block;
-            margin: 0 auto;
-            width: 59px;
-            height: 58px;
-            background: transparent url('../img/finger.png') left top no-repeat;
+            width: (346px / 2);
+            height: (66px / 2);
+            background: transparent url('../img/btn_next_1.png') left top no-repeat;
             background-size: 100% auto;
-            @include transition(all 0.3s ease-in-out);
         }
-        &.on{
-            &:after, .finger{
-                @include transform(scale(0));
-            }
+        &.pause .finger{
+            background: transparent url('../img/btn_next_2.png') left top no-repeat;
+            background-size: 100% auto;
+        }
+        &.on .finger{
+            @include transform(scale(0));
         }
     }
 }

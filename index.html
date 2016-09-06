@@ -11,31 +11,19 @@
 </head>
 <body>
     <div class="container">
-        <div class="media">
+        <div class="media" id="J_Media">
             <video id="J_Video" webkit-playsinline="webkit-playsinline">
-                <source src="http://whvanke.juzhen.co/2016/conference2016/video/0.mp4" type="video/mp4">
+                <source src="./media/anta1.mp4">
             </video>
             <canvas id="J_Canvas"></canvas>
-            <div class="touch" id="J_Touch">
-                <div class="finger"></div>
-            </div>
+            <div class="touch" id="J_Touch"><div class="finger"></div></div>
         </div>
     </div>
 
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-        var $meida = document.querySelector('.media');
-
         videoControl(function(res) {
             console.log(res); // play: 开发播放，pause: 暂停播放，end: 播放结束
-
-            if (res === "end") {
-                $meida.classList.add('hide');
-
-                setTimeout(function() {
-                    $meida.remove();
-                }, 500);
-            }
         });
     </script>
 </body>

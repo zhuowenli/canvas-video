@@ -11,6 +11,7 @@ function videoControl(callback) {
     var $video = document.getElementById('J_Video');
     var $canvas = document.getElementById('J_Canvas');
     var $touch = document.getElementById('J_Touch');
+    var $meida = document.getElementById('J_Media');
 
     var width = document.body.clientWidth;
     var height = document.body.clientHeight;
@@ -18,6 +19,7 @@ function videoControl(callback) {
     var ctx = $canvas.getContext('2d');
     $canvas.width = width;
     $canvas.height = height;
+    $meida.classList.add('show');
 
     function draw() {
         ctx.drawImage($video, 0, 0, width, height);
@@ -41,19 +43,29 @@ function videoControl(callback) {
     $touch.addEventListener('touchstart', function (e) {
         absorbEvent(e);
 
-        callback('play');
         $touch.classList.add('on');
+        $touch.classList.remove('pause');
         $video.play();
+
+        callback('play');
     });
 
     $touch.addEventListener('touchend', function (e) {
         $touch.classList.remove('on');
+        $touch.classList.add('pause');
         $video.pause();
+
         callback('pause');
     });
 
     $video.addEventListener('ended', function () {
         callback('end');
+
+        $meida.classList.add('hide');
+
+        setTimeout(function () {
+            $meida.remove();
+        }, 500);
     });
 }
 

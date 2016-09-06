@@ -480,7 +480,10 @@ html, body {
   right: 0;
   bottom: 0;
   -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out; }
+  transition: all 0.3s ease-in-out;
+  display: none; }
+  .media.show {
+    display: block; }
   .media.hide {
     opacity: 0; }
   .media video {
@@ -500,34 +503,19 @@ html, body {
     position: absolute;
     left: 50%;
     bottom: 0;
-    margin-left: -50px;
-    width: 100px;
-    height: 80px;
-    padding-top: 20px; }
-    .media .touch:after {
-      content: '';
-      position: absolute;
-      left: 10px;
-      top: 0;
-      display: block;
-      width: 80px;
-      height: 10px;
-      background: transparent url("../img/f.png") center top no-repeat;
-      background-size: 100% auto;
-      -webkit-animation: scan 1s ease-out infinite;
-      animation: scan 1s ease-out infinite;
-      -webkit-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out; }
+    margin-left: -86.5px;
+    width: 173px;
+    height: 33px;
+    padding: 10px 0; }
     .media .touch .finger {
-      display: block;
-      margin: 0 auto;
-      width: 59px;
-      height: 58px;
-      background: transparent url("../img/finger.png") left top no-repeat;
-      background-size: 100% auto;
-      -webkit-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out; }
-    .media .touch.on:after, .media .touch.on .finger {
+      width: 173px;
+      height: 33px;
+      background: transparent url("../img/btn_next_1.png") left top no-repeat;
+      background-size: 100% auto; }
+    .media .touch.pause .finger {
+      background: transparent url("../img/btn_next_2.png") left top no-repeat;
+      background-size: 100% auto; }
+    .media .touch.on .finger {
       -webkit-transform: scale(0);
       transform: scale(0); }
 
