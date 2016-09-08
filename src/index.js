@@ -20,7 +20,7 @@ function videoControl(callback) {
 
     setTimeout(function() {
         $video.pause();
-    }, 100);
+    }, 1000);
 
     function draw() {
         const width = document.body.clientWidth;
