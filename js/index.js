@@ -16,6 +16,12 @@ function videoControl(callback) {
     var videoWidth = 1334;
     var videoHeight = 750;
 
+    $video.play();
+
+    setTimeout(function () {
+        $video.pause();
+    }, 100);
+
     function draw() {
         var width = document.body.clientWidth;
         var height = document.body.clientHeight;
